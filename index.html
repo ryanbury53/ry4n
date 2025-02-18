@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ry4n's Links</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d1117;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 150vw;
+            height: 150vh;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            grid-auto-rows: 90px;
+            gap: 15px;
+            justify-content: center;
+            align-content: center;
+            pointer-events: none;
+            z-index: -1;
+            transform: rotate(-20deg) translate(-25vw, -25vh);
+        }
+        .tile {
+            width: 90px;
+            height: 90px;
+            background-image: url('https://static-cdn.jtvnw.net/jtv_user_pictures/93eb8daa-7c3b-4043-bd94-088b4b1c2ca9-profile_image-70x70.png');
+            background-size: cover;
+            transform: rotate(calc(var(--rotation) * 1deg));
+            opacity: calc(var(--opacity));
+        }
+        .container {
+            width: 100%;
+            max-width: 450px;
+            padding: 20px;
+            background: rgba(22, 27, 34, 0.9);
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+        }
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 3px solid #58a6ff;
+        }
+        h1 {
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        p {
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+        .social-links a, .donate-button {
+            display: block;
+            text-decoration: none;
+            color: white;
+            background: #21262d;
+            padding: 14px;
+            margin: 10px 0;
+            border-radius: 6px;
+            transition: 0.3s;
+            font-size: 16px;
+            font-weight: 400;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .social-links a:hover, .donate-button:hover {
+            background: #30363d;
+            transform: scale(1.05);
+        }
+        .donate-button {
+            background: #ff9800;
+            font-weight: 600;
+        }
+        .donate-button:hover {
+            background: #e68900;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            .social-links a, .donate-button {
+                padding: 12px;
+                font-size: 14px;
+            }
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const container = document.querySelector(".background-container");
+                const numTiles = Math.ceil(window.innerWidth / 90) * Math.ceil(window.innerHeight / 90);
+                for (let i = 0; i < numTiles; i++) {
+                    let tile = document.createElement("div");
+                    tile.classList.add("tile");
+                    tile.style.setProperty('--rotation', Math.floor(Math.random() * 360));
+                    tile.style.setProperty('--opacity', (Math.random() * 0.8) + 0.1);
+                    container.appendChild(tile);
+                }
+            });
+        </script>
+    </div>
+    <div class="container">
+        <img src="your-profile-image.jpg" alt="Ry4n" class="profile-img">
+        <h1>Ry4n</h1>
+        <p>Welcome to my links!</p>
+        <div class="social-links">
+            <a href="https://twitch.tv/ry4n" target="_blank">Twitch</a>
+            <a href="https://twitter.com/yourhandle" target="_blank">Twitter</a>
+            <a href="https://www.youtube.com/yourchannel" target="_blank">YouTube</a>
+            <a href="https://discord.gg/yourserver" target="_blank">Discord</a>
+        </div>
+        <a href="https://donate.example.com" target="_blank" class="donate-button">Donate</a>
+    </div>
+</body>
+</html>
